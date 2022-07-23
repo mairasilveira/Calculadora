@@ -1,6 +1,7 @@
 class CalcController {
 
-    constructor(){
+    constructor() {
+        this._locale = 'pt-BR';
         this._displayCalcEl = document.querySelector("#display");
         this._dateEl = document.querySelector("#data");
         this._timeEl = document.querySelector("#hora");
@@ -8,28 +9,56 @@ class CalcController {
         this.initialize();
     }
 
-    initialize(){
-    
+    initialize() {
 
-    displayCalcEl.innerHTML = "4567";
-    dateEl.innerHTML = "01/05/2022";
-    timeEl.innerHTML = "11:00";
+        this.setDisplayDateTime()
+
+       setInterval(()=>{
+
+        this.setDisplayDateTime();
+
+       }, 1000); //cada 1000 milisegundos a função roda dnv, hora vai atualizar a cada segundo
     }
 
-    get displayCalc(){
+    setDisplayDateTime() {
+        this.displayDate = this.currentDate.toLocaleDateString(this._locale, { //esse currentDate é o new date la embaixo
+            day: "2-digit",
+            month: "long",
+            year: "numeric"
+        });
+        this.displayTime = this.currentDate.toLocaleTimeString(this._locale);
+    }
+
+    get displayTime() {
+        return this._timeEl.innerHTML;
+    }
+
+    set displayTime(value) {
+        this._timeEl.innerHTML = value;
+    }
+
+    get displayDate() {
+        return this._dateEl.innerHTML;
+    }
+
+    set displayDate(value) {
+        this._dateEl.innerHTML = value;
+    }
+
+    get displayCalc() {
         return this._displayCalcEl.innerHTML;
     }
 
-    set displayCalc(valor){
-        this._displayCalc = valor;
+    set displayCalc(value) {
+        this._displayCalcEl.innerHTML = value;
     }
 
-    get dataAtual(){
-        return this._currentDate;
+    get currentDate() {
+        return new Date();
     }
 
-    set dataAtual(valor) {
-        this._currentDate = valor;
+    set currentDate(value) {
+        this._currentDate = value;
     }
 
 }

@@ -12,6 +12,6 @@
 <li>a tecla para limpar tudo (AC)</li>
 <li>a tecla para cancelar o último registro (CE)</li>
 </ol>
-<p>Os atalhos Cntrl + C e Cntrl + V podem ser utilizados para copiar e colar dados que estão no display da calculadora, respectivamente.</p>
+<p>Os atalhos Cntrl + C e Cntrl + V podem ser utilizados para copiar e colar dados que estão no display da calculadora.</p>
 <p>As contas serão sempre contínuas, ou seja, à medida que o usuário for digitando os valores e as operações, o visor vai sendo atualizado de acordo com os cálculos.</p>
 <p>No projeto foi utilizada uma API de áudio: o som das teclas da calculadora podem ser ativados ao clicar duas vezes no botão AC.</p>
